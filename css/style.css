@@ -292,6 +292,9 @@ nav {
 .dot:hover {
   background-color: #ea6c56;
 }
+.more{
+    display: none;
+}
 
 footer {
   margin-top: 4rem;
