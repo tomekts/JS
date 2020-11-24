@@ -51,8 +51,8 @@ document.addEventListener('DOMContentLoaded', function() {
       inside.style.border = '1px solid #7f7f7f';      
     });
 	
-	var but = document.querySelector('.dropdown');
-	addEventListener('click', function(){
+	var but = document.querySelector('.upButton');
+	but.addEventListener('click', function(){
 		console.log('pies')
 		window.scroll( 0, 0)
 	} )
