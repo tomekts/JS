@@ -22,7 +22,11 @@ nav {
   font-size: 2.5rem;
   text-transform: uppercase;
 }
-
+.upButton{
+  position: fixed;
+  top: 95%;
+  left: 80%;
+}
 
 .brand-container {
   padding: 0;

@@ -48,11 +48,13 @@ document.addEventListener('DOMContentLoaded', function() {
       bar.style.borderBottom = '1px solid #7f7f7f';
       
       var inside =document.querySelector('.dropdown');
-      inside.style.border = '1px solid #7f7f7f';
-      
-
-
-      
+      inside.style.border = '1px solid #7f7f7f';      
     });
 	
+	var but = document.querySelector('.dropdown');
+	addEventListener('click', function(){
+		console.log('pies')
+		window.scroll( 0, 0)
+	} )
+
 });
