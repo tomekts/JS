@@ -2,10 +2,10 @@
 
 document.addEventListener('DOMContentLoaded', function() {
 	// tutaj będziemy umieszczać kod ze wszystkich zadań
-	var listMenu  = document.querySelector('.for-dropdown');  
-	var buttons = document.querySelectorAll('.read-more');
-    
 	
+    
+	// rozwijanie listy menu
+	var listMenu  = document.querySelector('.for-dropdown');
 	listMenu.addEventListener('mouseover', function(){
 		console.log('wjezda na menu');
 		document.querySelector('.dropdown').style.display = 'block';
@@ -16,10 +16,8 @@ document.addEventListener('DOMContentLoaded', function() {
 		document.querySelector('.dropdown').style.display = 'none';
 	});
 
-	// buttons[0].addEventListener('click', buttonClick );
-	// buttons[1].addEventListener('click', buttonClick );
-	// buttons[2].addEventListener('click', buttonClick );
-
+	//obsługa rozwijania 
+	var buttons = document.querySelectorAll('.read-more');
 	for (var i = 0 ; i < buttons.length; i++) {
 		buttons[i].addEventListener('click', buttonClick )
 	}   
@@ -39,9 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
     	}  
 	}
 
-	var cos = document.querySelectorAll('.col-sm-4');
-	console.log(cos[1]);
-
+// skrolowanie
 	 window.addEventListener('scroll', function() {
       console.log('działa przy scrollu');
       var bar =document.querySelector('.navbar');
@@ -51,10 +47,40 @@ document.addEventListener('DOMContentLoaded', function() {
       inside.style.border = '1px solid #7f7f7f';      
     });
 	
+// przycisk powrótu do góry strony
 	var but = document.querySelector('.upButton');
 	but.addEventListener('click', function(){
 		console.log('pies')
 		window.scroll( 0, 0)
-	} )
+	});
+
+// obługa przegladania ocen
+	var items = document.querySelectorAll('.org');
+	var dots = document.querySelectorAll('.dot');
+	
+	//items[0].classList.remove('visible');
+
+	for (var i =0 ; dots.length > i; i++) {
+		dots[i].addEventListener('click', kropka);	
+	}	
+
+	function kropka(){
+		for (var i =0 ; dots.length > i; i++) {
+		dots[i].classList.remove('active');	
+		items[i].classList.remove('visible');	
+	}
+
+		this.classList.add('active');		
+		if (this==dots[0]) {
+			items[0].classList.add('visible');
+		}else if(this==dots[1]){
+			items[1].classList.add('visible');
+		}else if(this==dots[2]){
+			items[2].classList.add('visible');
+		}else{
+			items[3].classList.add('visible');
+		}
+	}
+
 
 });

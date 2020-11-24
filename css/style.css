@@ -261,6 +261,15 @@ nav {
   font-weight: 600;
 }
 
+
+.org{
+  display: none;
+}
+
+.visible{
+  display: inline-block;
+}
+
 .org h5 a {
   color: #ea6c56;
   text-decoration: none;
