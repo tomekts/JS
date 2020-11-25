@@ -86,31 +86,58 @@ document.addEventListener('DOMContentLoaded', function() {
 		console.log('butto dodania zadani');
 	});
 
-
+	
 	buttonAddWork.addEventListener('click', addTask);
+	
 	
 
 	function addTask(){
-		var newTask = document.createElement('li');
-		var buttonDelete = document.createElement('button');
-		buttonDelete.innerHTML="Usuń";		
-		buttonDelete.classList.add('buttonDelete');	
-		buttonDelete.addEventListener('click', deleteTask);		
-		
-	
-		newTask.innerHTML=inputWork.value;
-		listWork.appendChild(newTask);
-		listWork.appendChild(buttonDelete);		
-		inputWork.value="";
+			//walidacja inputa
+		if (inputWork.value.length !==0) {
+			var newTask = document.createElement('li');
+			var buttonDelete = document.createElement('button');
+			var checkbox = document.createElement('input');
+			buttonDelete.innerHTML="Usuń";		
+			buttonDelete.classList.add('buttonDelete');				
+			
+			buttonDelete.addEventListener('click', deleteTask);					
+			newTask.innerHTML=inputWork.value;		
+			checkbox.type="checkbox";
+			checkbox.classList.add('checkButton');	
+			checkbox.addEventListener('click', checkList);	
+			listWork.appendChild(checkbox);	
+			listWork.appendChild(newTask);
+			listWork.appendChild(buttonDelete);	
+			
+			console.log(inputWork.value);		
+			inputWork.value="";
+		}else{
+			alert("musisz wpisac co chcesz dodac");
+		}
 
 	}
 
 	function deleteTask(){		
 		this.previousElementSibling.remove();
+		this.previousElementSibling.remove();
 		this.remove();				
 
 	}
-	
+
+	function checkList(){
+		console.log(this.checked);
+
+		if (this.checked==true) {
+		this.nextSibling.classList.add('redCollor');
+		this.nextSibling.nextSibling.classList.add('redCollor');
+		
+	}else{
+		this.nextSibling.classList.remove('redCollor');
+		this.nextSibling.nextSibling.classList.remove('redCollor');
+	}
+
+	}
+
 
 
 

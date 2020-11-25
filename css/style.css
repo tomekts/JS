@@ -321,6 +321,16 @@ nav {
   display: inline-block;
 
 }
+.redCollor{
+  //background-color: gray !important;
+   opacity: 0.2;
+  
+
+}
+.list input{
+  width: 5%;
+  margin-right: 2px;
+}
 
 footer {
   margin-top: 4rem;
