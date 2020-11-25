@@ -69,17 +69,14 @@ document.addEventListener('DOMContentLoaded', function() {
 		dots[i].classList.remove('active');	
 		items[i].classList.remove('visible');	
 	}
-
-		this.classList.add('active');		
-		if (this==dots[0]) {
-			items[0].classList.add('visible');
-		}else if(this==dots[1]){
-			items[1].classList.add('visible');
-		}else if(this==dots[2]){
-			items[2].classList.add('visible');
-		}else{
-			items[3].classList.add('visible');
+	
+		for (var i =0 ; dots.length > i; i++){
+			if (this==dots[i]){
+			items[i].classList.add('visible');
+			}
 		}
+
+
 	}
 //lista zadań
 	var buttonAddWork = document.querySelector('.buttonAddWork');
@@ -88,6 +85,8 @@ document.addEventListener('DOMContentLoaded', function() {
 	buttonAddWork.addEventListener('click', function(){
 		console.log('butto dodania zadani');
 	});
+
+
 	buttonAddWork.addEventListener('click', addTask);
 	
 
