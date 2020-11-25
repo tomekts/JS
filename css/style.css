@@ -229,6 +229,8 @@ nav {
   padding: .5rem 1rem;
   background-color: #F58122;
   border-radius: .5rem;
+  width: 80%;
+  display: inline-block;
 }
 
 .add-task-btn {
@@ -308,6 +310,16 @@ nav {
 }
 .more{
     display: none;
+}
+.buttonDelete{
+  margin-bottom: 1rem;
+  padding: .5rem 1rem;
+  background-color: #F58122;
+  border-radius: .5rem;
+  width: 10%;
+  margin-left: 10px;
+  display: inline-block;
+
 }
 
 footer {

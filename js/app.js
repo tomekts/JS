@@ -69,15 +69,15 @@ document.addEventListener('DOMContentLoaded', function() {
 		dots[i].classList.remove('active');	
 		items[i].classList.remove('visible');	
 	}
-	
+
 		for (var i =0 ; dots.length > i; i++){
-			if (this==dots[i]){
-			items[i].classList.add('visible');
-			}
+			if (this==dots[i])
+			items[i].classList.add('visible');			
 		}
 
 
 	}
+
 //lista zadań
 	var buttonAddWork = document.querySelector('.buttonAddWork');
 	var listWork = document.querySelector('.list-group');
@@ -95,18 +95,22 @@ document.addEventListener('DOMContentLoaded', function() {
 		var buttonDelete = document.createElement('button');
 		buttonDelete.innerHTML="Usuń";		
 		buttonDelete.classList.add('buttonDelete');	
-		buttonDelete.addEventListener('click', function(){
-		console.log('button usun');
-		buttonDelete.classList.add('org');
-	});
+		buttonDelete.addEventListener('click', deleteTask);		
+		
+	
 		newTask.innerHTML=inputWork.value;
 		listWork.appendChild(newTask);
-		listWork.appendChild(buttonDelete);
-		//listWork.appendChild(buttonDelete);
+		listWork.appendChild(buttonDelete);		
 		inputWork.value="";
-		
 
 	}
+
+	function deleteTask(){		
+		this.previousElementSibling.remove();
+		this.remove();				
+
+	}
+	
 
 
 
