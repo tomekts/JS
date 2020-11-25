@@ -81,6 +81,36 @@ document.addEventListener('DOMContentLoaded', function() {
 			items[3].classList.add('visible');
 		}
 	}
+//lista zadań
+	var buttonAddWork = document.querySelector('.buttonAddWork');
+	var listWork = document.querySelector('.list-group');
+	var inputWork = document.querySelector('.form-control');
+	buttonAddWork.addEventListener('click', function(){
+		console.log('butto dodania zadani');
+	});
+	buttonAddWork.addEventListener('click', addTask);
+	
 
+	function addTask(){
+		var newTask = document.createElement('li');
+		var buttonDelete = document.createElement('button');
+		buttonDelete.innerHTML="Usuń";		
+		buttonDelete.classList.add('buttonDelete');	
+		buttonDelete.addEventListener('click', function(){
+		console.log('button usun');
+		buttonDelete.classList.add('org');
+	});
+		newTask.innerHTML=inputWork.value;
+		listWork.appendChild(newTask);
+		listWork.appendChild(buttonDelete);
+		//listWork.appendChild(buttonDelete);
+		inputWork.value="";
+		
+
+	}
+
+
+
+// zamykanie ładowani js
 
 });
