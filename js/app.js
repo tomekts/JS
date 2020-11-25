@@ -4,19 +4,33 @@ document.addEventListener('DOMContentLoaded', function() {
 	// tutaj będziemy umieszczać kod ze wszystkich zadań
 	
     
-	// rozwijanie listy menu
-	var listMenu  = document.querySelector('.for-dropdown');
-	listMenu.addEventListener('mouseover', function(){
-		console.log('wjezda na menu');
-		document.querySelector('.dropdown').style.display = 'block';
-	});
+// rozwijanie listy menu
+	var listsMenu = document.querySelectorAll('.for-dropdown');
+	var wysuwanie = document.querySelectorAll('.dropdown')
 
-	listMenu.addEventListener('mouseout', function(){
+
+	for (var i = 0 ; i < listsMenu.length; i++){
+		listsMenu[i].addEventListener('mouseover', show);
+		listsMenu[i].addEventListener('mouseout', hide);
+	}
+
+	function show(){
+		console.log('wjezda na menu');	
+		for (var i = 0 ; i < listsMenu.length; i++){
+			if (this==listsMenu[i]) {
+			wysuwanie[i].style.display = 'block';
+			}
+		}
+	}
+	function hide(){
 		console.log('wyjezdza z menu');
-		document.querySelector('.dropdown').style.display = 'none';
-	});
+		for (var i = 0 ; i < listsMenu.length; i++){
+			wysuwanie[i].style.display = 'none';
+		}
+	}
 
-	//obsługa rozwijania 
+
+//obsługa rozwijania opisu o osobie 
 	var buttons = document.querySelectorAll('.read-more');
 	for (var i = 0 ; i < buttons.length; i++) {
 		buttons[i].addEventListener('click', buttonClick )
@@ -37,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
     	}  
 	}
 
-// skrolowanie
+// obramowanie górnego menu
 	 window.addEventListener('scroll', function() {
       console.log('działa przy scrollu');
       var bar =document.querySelector('.navbar');
@@ -56,9 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // obługa przegladania ocen
 	var items = document.querySelectorAll('.org');
-	var dots = document.querySelectorAll('.dot');
-	
-	//items[0].classList.remove('visible');
+	var dots = document.querySelectorAll('.dot');	
 
 	for (var i =0 ; dots.length > i; i++) {
 		dots[i].addEventListener('click', kropka);	
@@ -66,16 +78,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	function kropka(){
 		for (var i =0 ; dots.length > i; i++) {
-		dots[i].classList.remove('active');	
-		items[i].classList.remove('visible');	
-	}
+			dots[i].classList.remove('active');	
+			items[i].classList.remove('visible');	
+		}
 
 		for (var i =0 ; dots.length > i; i++){
 			if (this==dots[i])
 			items[i].classList.add('visible');			
 		}
-
-
 	}
 
 //lista zadań
@@ -84,12 +94,9 @@ document.addEventListener('DOMContentLoaded', function() {
 	var inputWork = document.querySelector('.form-control');
 	buttonAddWork.addEventListener('click', function(){
 		console.log('butto dodania zadani');
-	});
-
+		});
 	
-	buttonAddWork.addEventListener('click', addTask);
-	
-	
+	buttonAddWork.addEventListener('click', addTask);	
 
 	function addTask(){
 			//walidacja inputa
@@ -116,30 +123,24 @@ document.addEventListener('DOMContentLoaded', function() {
 		}
 
 	}
-
+	//usuwanie zadania
 	function deleteTask(){		
 		this.previousElementSibling.remove();
 		this.previousElementSibling.remove();
-		this.remove();				
+		this.remove();		
 
 	}
-
+	//obługa boxa do wykonania zadania
 	function checkList(){
-		console.log(this.checked);
-
 		if (this.checked==true) {
 		this.nextSibling.classList.add('redCollor');
-		this.nextSibling.nextSibling.classList.add('redCollor');
-		
-	}else{
-		this.nextSibling.classList.remove('redCollor');
-		this.nextSibling.nextSibling.classList.remove('redCollor');
-	}
+		this.nextSibling.nextSibling.classList.add('redCollor');		
+		}else{
+			this.nextSibling.classList.remove('redCollor');
+			this.nextSibling.nextSibling.classList.remove('redCollor');
+		}
 
 	}
-
-
-
 
 // zamykanie ładowani js
 
